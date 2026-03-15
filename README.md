@@ -1,6 +1,16 @@
 # trigger-tune
 Open-source audio player triggered by light beams
 
+## Table of Contents
+1. [Components](#components)
+2. [Wiring Diagram](#wiring-diagram)
+3. [How-To](#how-to)
+    - [Breadboard Prototyping](#breadboard-prototyping)
+    - [Firmware Setup](#firmware-setup)
+    - [Important: USB Power Handling](#important-usb-power-handling)
+    - [Build Prototype](#build-prototype)
+4. [Support me](#support-me)
+5. [Third-Party Code and License](#third-party-code-and-license)
 
 ## Components
 - RP2040 (Zero)
@@ -59,8 +69,14 @@ Drill the necessary holes for the cable glands and connectors, then insert them 
 If you find this project helpful and would like to support my work, I would be very grateful for a contribution via GitHub Sponsors or in Bitcoin (BTC) / Litecoin (LTC). Every bit of support helps me to keep creating and sharing new projects. Thank you!
 
 LTC:
-![LTC QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=DEINE_LTC_ADRESSE)
-BTC:
+ltc1qx2yf4cndqr2zf3vfd7l2ywm5hylvhm0a8jrxry
+
+![LTC QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ltc1qx2yf4cndqr2zf3vfd7l2ywm5hylvhm0a8jrxry)
+
+BTC: 
+bc1qd2n20g6phmnkxcdhrznqfes3mdxefpslywy67v
+
+![LTC QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qd2n20g6phmnkxcdhrznqfes3mdxefpslywy67v)
 
 ## Third-Party Code and License
 
