@@ -2,15 +2,19 @@
 Open-source audio player triggered by light beams
 
 ## Table of Contents
+## Table of Contents
 1. [Components](#components)
 2. [Wiring Diagram](#wiring-diagram)
-3. [How-To](#how-to)
+3. [Firmware Details](#firmware-details)
+4. [DFPlayer Mini & SD Card Setup](#dfplayer-mini--sd-card-setup)
+5. [LED Status Indicators](#led-status-indicators)
+6. [How-To](#how-to)
     - [Breadboard Prototyping](#breadboard-prototyping)
     - [Firmware Setup](#firmware-setup)
     - [Important: USB Power Handling](#important-usb-power-handling)
     - [Build Prototype](#build-prototype)
-4. [Support me](#support-me)
-5. [Third-Party Code and License](#third-party-code-and-license)
+7. [Support me](#support-me)
+8. [Third-Party Code and License](#third-party-code-and-license)
 
 ## Components
 - RP2040 (Zero)
@@ -28,9 +32,34 @@ Open-source audio player triggered by light beams
 ![Wiring Diagram](docu/wiring_bb.jpg)
 Figure 1: Wiring diagram on the perfboard
 
-- Connector J1 connects to the light barrier; the wiring will be split later into transmitter and receiver units. Additional light barriers can be wired in parallel here.
-- Connector J2 connects to the external WS2812 LED.
-- Connector J3 connects to the audio jack.
+- **Connector J1** connects to the light barrier; the wiring will be split later into transmitter and receiver units. Additional light barriers can be wired in parallel here.
+- **Connector J2** connects to the external WS2812 LED.
+- **Connector J3** connects to the audio jack.
+
+## Firmware Details
+The firmware is written in **MicroPython** and utilizes a modified version of the [penguintutor/dfplayermini-pico](https://github.com/penguintutor/dfplayermini-pico) library.
+
+The program continuously **polls the GPIO pin** connected to the light barrier. When triggered, it selects and plays a random MP3 file from the SD card. To ensure variety, the logic includes a mechanism that prevents the same track from being played twice in a row.
+
+### Power Management & Optimization
+While the RP2040 supports **Deep Sleep** with GPIO interrupts, this was not implemented. The **DFPlayer Mini** remains the primary power consumer in the circuit, making the power savings from MCU sleep modes negligible for this specific application.
+
+## DFPlayer Mini & SD Card Setup
+The DFPlayer Mini requires the SD card to be formatted to **FAT16 or FAT32**.
+
+### SD Card Structure
+The module requires a specific file naming convention to function reliably:
+- **Folder naming:** Use a folder named `01` in the root directory.
+- **File naming:** Files should be prefixed with a three-digit number (e.g., `001.mp3`).
+
+## LED Status Indicators
+The WS2812 LED (internal on PIN 16 and (optional) extenal on PIN 28) provides visual feedback on the system's state:
+
+- **White:** System is initializing.
+- **Green:** Ready and waiting for light beam trigger.
+- **Blue:** Triggered / Playing audio. The LED stays blue for 1 second upon trigger; the song continues to play until the end unless a new trigger occurs during playback.
+- **Red:** Error. No SD card detected or no MP3 files found in the specified folder.
+- **Yellow:** Obstruction warning. The light beam is being triggered continuously (likely blocked or misaligned).
 
 ## How-To
 
