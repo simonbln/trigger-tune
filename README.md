@@ -94,15 +94,17 @@ Drill the necessary holes for the cable glands and connectors, then insert them 
 ![in the enclosure 2](docu/5.jpg)
 ![PCB in the lid](docu/finished.jpg)
 
+**Note**: I am using two light barriers in this setup. Therefore, the wiring is split to connect both pairs (two transmitters and two receivers) in parallel.
+
 ## Support me
 If you find this project helpful and would like to support my work, I would be very grateful for a contribution via GitHub Sponsors or in Bitcoin (BTC) / Litecoin (LTC). Every bit of support helps me to keep creating and sharing new projects. Thank you!
 
-LTC:
+### LTC:
 ltc1qx2yf4cndqr2zf3vfd7l2ywm5hylvhm0a8jrxry
 
 ![LTC QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ltc1qx2yf4cndqr2zf3vfd7l2ywm5hylvhm0a8jrxry)
 
-BTC: 
+### BTC: 
 bc1qd2n20g6phmnkxcdhrznqfes3mdxefpslywy67v
 
 ![LTC QR Code](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qd2n20g6phmnkxcdhrznqfes3mdxefpslywy67v)
