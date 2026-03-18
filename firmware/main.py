@@ -78,11 +78,22 @@ def play_random():
         
         print(f"Action: Playing random track {random_song}")
         player.play(random_song)
+        #player.play(1)
     else:
         print("Error: No songs found on SD card.")
         set_pixel_color(Colors.RED)
 
+play_start_time = 0
+is_playing = False
+
 while True:
+    current_time = time.ticks_ms()
+
+    if is_playing and time.ticks_diff(current_time, play_start_time) > 10000:
+        player.stop()
+        is_playing = False
+        print("Time up: Stopped playing")
+        
     if count_songs == 0:
         set_pixel_color(Colors.RED)
         time.sleep(2)
@@ -91,6 +102,8 @@ while True:
             ready_for_detection = False
             set_pixel_color(Colors.BLUE)
             play_random()
+            play_start_time = time.ticks_ms()
+            is_playing = True            
             time.sleep(1)
         else:
             set_pixel_color(Colors.YELLOW)
